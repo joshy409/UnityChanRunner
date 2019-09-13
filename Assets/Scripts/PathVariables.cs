@@ -14,13 +14,17 @@ public class PathVariables : MonoBehaviour {
     public float sizeOfPath;
     public bool isTurn = false;
 
+    public Material corruption;
+    public Renderer mesh;
+
+    public bool destroy = false;
 
     float score = 10f;
 
     GameObject entrance;
     GameObject exit;
-    GameObject reference;
 
+    bool spread = false;
 
     BoxCollider entranceCollider;
 
@@ -52,7 +56,9 @@ public class PathVariables : MonoBehaviour {
             exit = transform.Find("Exit").gameObject;
         }
 
-        reference = GameObject.Find("Reference");
+        //copy and make a new instance of material
+        Material mat = new Material(corruption);
+        mesh.material = mat;
         
     }
 
@@ -97,8 +103,6 @@ public class PathVariables : MonoBehaviour {
     {
         if (other.CompareTag("PlayerBody"))
         {
-            //print("points");
-            //ScoreClass.AddPoints(score);
         }
     }
 
@@ -108,13 +112,41 @@ public class PathVariables : MonoBehaviour {
         if (other.CompareTag("PlayerBody"))
         {
             StartCoroutine(ChangeTriggerAfterDelay());
+            //queue corrption
+            spread = true;
         }
     }
 
     IEnumerator ChangeTriggerAfterDelay()
     {
         yield return new WaitForSeconds(.5f);
-        entranceCollider.isTrigger = false;
+        //entranceCollider.isTrigger = false;
         entrance.layer = 17;
     }
+
+    float current = 0;
+    float end = 2f;
+    private void Update()
+    {
+        if (spread)
+        {
+            if (current >= end)
+            {
+                spread = false;
+                if(destroy)
+                {
+                    Destroy(gameObject, 1f);
+                }
+            }
+            else
+            {
+                current += Time.deltaTime;
+                float percent = current / end;
+                Mathf.Clamp01(percent);
+                mesh.material.SetFloat("_Cutoff", percent);
+                print(percent);
+            }
+        }
+    }
+
 }

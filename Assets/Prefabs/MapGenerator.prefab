@@ -77,8 +77,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entranceLocation: 0
   exitLocation: 0
-  sizeOfPath: 0
+  sizeOfPath: 30
   isTurn: 0
+  corruption: {fileID: 2100000, guid: de6f11d0a3d016a41a75e2966873203f, type: 2}
+  mesh: {fileID: 7049046756419322147}
   dir: 4
   type: 0
 --- !u!1001 &7049046756417165635
@@ -91,6 +93,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 0ac51701c910aa843916f3f896fb65b8, type: 3}
       propertyPath: m_Name
       value: editStraightCloud
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 0ac51701c910aa843916f3f896fb65b8, type: 3}
+      propertyPath: m_Name
+      value: Mesh
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0ac51701c910aa843916f3f896fb65b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -145,6 +151,12 @@ PrefabInstance:
 --- !u!4 &7049046756417029059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 0ac51701c910aa843916f3f896fb65b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 7049046756417165635}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7049046756419322147 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: 0ac51701c910aa843916f3f896fb65b8,
     type: 3}
   m_PrefabInstance: {fileID: 7049046756417165635}
   m_PrefabAsset: {fileID: 0}
