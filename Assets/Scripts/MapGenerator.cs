@@ -173,7 +173,7 @@ public class MapGenerator : MonoBehaviour
     }
     IEnumerator DisableAfterDelay()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(10f);
         meshRenderer.SetActive(false);
         meshCollider.SetActive(false);
         //correctionCollider.SetActive(false);

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{CA14CB08-9047-6A07-33D0-79008C803597}</ProjectGuid>
+    <ProjectGuid>{59C5061D-C3AD-B7EA-DC22-FA33EA35DC7E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -60,12 +60,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AnimationCycling.cs" />
-    <Compile Include="Assets\FollowMouse.cs" />
-    <Compile Include="Assets\IdleBehavior.cs" />
-    <Compile Include="Assets\IKControl.cs" />
-    <Compile Include="Assets\JumpBehavior.cs" />
-    <Compile Include="Assets\MoveBehavior.cs" />
+    <Compile Include="Assets\Scripts\AnimationCycling.cs" />
+    <Compile Include="Assets\Scripts\Collectibles.cs" />
+    <Compile Include="Assets\Scripts\CollectiblesSpawner.cs" />
+    <Compile Include="Assets\Scripts\FollowMouse.cs" />
+    <Compile Include="Assets\Scripts\IdleBehavior.cs" />
+    <Compile Include="Assets\Scripts\IKControl.cs" />
+    <Compile Include="Assets\Scripts\JumpBehavior.cs" />
+    <Compile Include="Assets\Scripts\LocationDecode.cs" />
+    <Compile Include="Assets\Scripts\MapGenerator.cs" />
+    <Compile Include="Assets\Scripts\MoveBehavior.cs" />
+    <Compile Include="Assets\Scripts\PathVariables.cs" />
+    <Compile Include="Assets\Scripts\ProcedureVariables.cs" />
+    <Compile Include="Assets\Scripts\ScoreKeeper.cs" />
     <Compile Include="Assets\unity-chan!\Unity-chan! Model\Scripts\AutoBlink.cs" />
     <Compile Include="Assets\unity-chan!\Unity-chan! Model\Scripts\CameraController.cs" />
     <Compile Include="Assets\unity-chan!\Unity-chan! Model\Scripts\FaceUpdate.cs" />
@@ -90,20 +97,21 @@
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
+    <None Include="Assets\Shader\Corruption.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/s189080/Documents/UnityChan/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/s189080/Downloads/UnityChanRunner/UnityChanRunner/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/s189080/Documents/UnityChan/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/s189080/Downloads/UnityChanRunner/UnityChanRunner/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/s189080/Documents/UnityChan/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/s189080/Downloads/UnityChanRunner/UnityChanRunner/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/s189080/Documents/UnityChan/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/s189080/Downloads/UnityChanRunner/UnityChanRunner/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/s189080/Documents/UnityChan/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/s189080/Downloads/UnityChanRunner/UnityChanRunner/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity 2018.3.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -307,13 +315,13 @@
       <HintPath>C:/Program Files/Unity 2018.3.8f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/s189080/Documents/UnityChan/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/s189080/Downloads/UnityChanRunner/UnityChanRunner/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/s189080/Documents/UnityChan/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/s189080/Downloads/UnityChanRunner/UnityChanRunner/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/s189080/Documents/UnityChan/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/s189080/Downloads/UnityChanRunner/UnityChanRunner/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity 2018.3.8f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

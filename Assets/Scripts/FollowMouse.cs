@@ -21,6 +21,5 @@ public class FollowMouse : MonoBehaviour
         {
             transform.position = ikGoal;
         }
-
     }
 }
