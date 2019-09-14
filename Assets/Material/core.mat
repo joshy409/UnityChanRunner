@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: core
-  m_Shader: {fileID: 4800000, guid: 4fab9cdd4919e774ba5bc174d1953135, type: 3}
+  m_Shader: {fileID: 4800000, guid: 9d8c02dfd2779e748a354d5155e6fc13, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -61,6 +61,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FresenlIntensity: 1.8
+    - _FresnelIntensity: 1.5
     - _FresnelPower: 1.5
     - _FresnelValue: 1.4
     - _GlossMapScale: 1
