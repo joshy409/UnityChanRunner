@@ -159,7 +159,7 @@ public class MapGenerator : MonoBehaviour
             //print("called");
             if (generatedPaths.Count > generationVariables.minPath)
             {
-                //Destroy(generatedPaths.Dequeue(), generationVariables.seconds);
+                Destroy(generatedPaths.Dequeue(), generationVariables.seconds);
                 //Destroy(generatedPaths.Dequeue(), generationVariables.seconds);
             }
 

@@ -31,6 +31,8 @@ public class PathVariables : MonoBehaviour {
     public LocationDecode.Direction dir;
     public LocationDecode.PathType type;
 
+    public Explode ex;
+
     private void Awake()
     {
         if (!isTurn)
@@ -135,6 +137,7 @@ public class PathVariables : MonoBehaviour {
                 spread = false;
                 if(destroy)
                 {
+                    StartCoroutine(ex.SplitMesh(true));
                     Destroy(gameObject, 1f);
                 }
             }
@@ -144,7 +147,6 @@ public class PathVariables : MonoBehaviour {
                 float percent = current / end;
                 Mathf.Clamp01(percent);
                 mesh.material.SetFloat("_Cutoff", percent);
-                print(percent);
             }
         }
     }

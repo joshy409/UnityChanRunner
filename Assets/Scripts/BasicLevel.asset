@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BasicLevel
   m_EditorClassIdentifier: 
   straightPrefabs:
-  - {fileID: 6821909008654834418, guid: 9f780890b2333ac45bc62018fbc8b02d, type: 3}
+  - {fileID: 7769848018803831363, guid: b295008c60a60604faefec58078d6d0a, type: 3}
   turnPrefabs:
   - {fileID: 2106906960455962597, guid: eac68bf3f2a8751429582ce6f5e38867, type: 3}
   - {fileID: 8851832472884575353, guid: 61740871d5fbffc4dabc7b826e8c6b76, type: 3}
@@ -24,4 +24,4 @@ MonoBehaviour:
   upDownEnabled: 0
   upDownTurnEnabled: 0
   minPath: 2
-  seconds: 4
+  seconds: 2
