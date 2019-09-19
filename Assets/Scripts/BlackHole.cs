@@ -15,9 +15,9 @@ public class BlackHole : MonoBehaviour
         if (mapGen.lastGeneratedTurn.Count != 0)
         {
             //use movetowards
-            transform.position = Vector3.Lerp(transform.position, mapGen.lastGeneratedTurn.Peek().pos, Time.deltaTime * speed);
+            transform.position = Vector3.MoveTowards(transform.position, mapGen.lastGeneratedTurn.Peek().pos, Time.deltaTime * speed);
 
-            if (Vector3.Distance(transform.position, mapGen.lastGeneratedTurn.Peek().pos) <= 60)
+            if (Vector3.Distance(transform.position, mapGen.lastGeneratedTurn.Peek().pos) <= 10)
             {
                 transform.position = mapGen.lastGeneratedTurn.Peek().pos;
                 mapGen.lastGeneratedTurn.Dequeue();
