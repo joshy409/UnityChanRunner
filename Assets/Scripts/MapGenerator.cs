@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public struct Pos
+{
+    public Vector3 pos;
+}
+
 public class MapGenerator : MonoBehaviour
 {
 
@@ -14,6 +20,8 @@ public class MapGenerator : MonoBehaviour
     BoxCollider col;
     Transform exitPosition;
     PathVariables pathVariables;
+
+    public Queue<Pos> lastGeneratedTurn = new Queue<Pos>();
 
     GameObject orientation;
 
@@ -173,7 +181,7 @@ public class MapGenerator : MonoBehaviour
     }
     IEnumerator DisableAfterDelay()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(2f);
         meshRenderer.SetActive(false);
         meshCollider.SetActive(false);
         //correctionCollider.SetActive(false);
@@ -240,6 +248,9 @@ public class MapGenerator : MonoBehaviour
         pathVariables.entranceLocation = exitLocation;
         exitPosition = generatedCube.transform.Find("Exit");
         generatedCube.name = pathVariables.entranceLocation + "_" + pathVariables.exitLocation + "_" + generatedCube.name;
+        Pos copy = new Pos();
+        copy.pos = generatedCube.transform.position;
+        lastGeneratedTurn.Enqueue(copy);
     }
 
 

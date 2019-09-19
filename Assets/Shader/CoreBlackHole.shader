@@ -69,11 +69,11 @@
             fixed4 frag (v2f i) : SV_Target
             {
                 i.normalDir = normalize(i.normalDir);
-                float3 viewDir = normalize(_WorldSpaceCameraPos.xyz - i.worldPos.xyz);
+                float3 viewDir = normalize(-_WorldSpaceCameraPos.xyz - i.worldPos.xyz);
                 float3 normalDirection = i.normalDir;
 
                 float3 emission = (_Color.rgb + ((i.vertex_Color.rgb * pow(pow(1.0 - max(0, dot(normalDirection, viewDir)), _FresnelValue), _FresnelPower))* _FresnelIntensity));
-                float4 col = float4(emission,1);
+                float4 col = float4(emission,5);
 
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;

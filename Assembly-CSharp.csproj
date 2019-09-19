@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AnimationCycling.cs" />
+    <Compile Include="Assets\Scripts\BlackHole.cs" />
     <Compile Include="Assets\Scripts\Collectibles.cs" />
     <Compile Include="Assets\Scripts\CollectiblesSpawner.cs" />
     <Compile Include="Assets\Scripts\Explode.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\Scripts\LocationDecode.cs" />
     <Compile Include="Assets\Scripts\MapGenerator.cs" />
     <Compile Include="Assets\Scripts\MoveBehavior.cs" />
+    <Compile Include="Assets\Scripts\MoveTowardsCenter.cs" />
     <Compile Include="Assets\Scripts\PathVariables.cs" />
     <Compile Include="Assets\Scripts\ProcedureVariables.cs" />
     <Compile Include="Assets\Scripts\ScoreKeeper.cs" />

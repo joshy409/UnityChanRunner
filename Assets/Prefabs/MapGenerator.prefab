@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1187537644535960806}
   m_Layer: 0
   m_Name: MapGenerator
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,8 +81,10 @@ MonoBehaviour:
   isTurn: 0
   corruption: {fileID: 2100000, guid: de6f11d0a3d016a41a75e2966873203f, type: 2}
   mesh: {fileID: 7049046756419322147}
+  destroy: 0
   dir: 4
   type: 0
+  ex: {fileID: 0}
 --- !u!1001 &7049046756417165635
 PrefabInstance:
   m_ObjectHideFlags: 0
