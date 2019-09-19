@@ -6,6 +6,7 @@ using UnityEngine;
 public struct Pos
 {
     public Vector3 pos;
+    public Quaternion rot;
 }
 
 public class MapGenerator : MonoBehaviour
@@ -47,7 +48,7 @@ public class MapGenerator : MonoBehaviour
         {
             
             GenerateUntilTurn();
-            //GenerateUntilTurn();
+            GenerateUntilTurn();
         }
     }
 
@@ -250,6 +251,7 @@ public class MapGenerator : MonoBehaviour
         generatedCube.name = pathVariables.entranceLocation + "_" + pathVariables.exitLocation + "_" + generatedCube.name;
         Pos copy = new Pos();
         copy.pos = generatedCube.transform.position;
+        copy.rot = exitPosition.transform.rotation;
         lastGeneratedTurn.Enqueue(copy);
     }
 

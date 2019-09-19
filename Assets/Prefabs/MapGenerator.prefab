@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7905346756402979236}
   - component: {fileID: 4364156955053029275}
   - component: {fileID: 1187537644535960806}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MapGenerator
   m_TagString: Path
   m_Icon: {fileID: 0}
@@ -96,9 +96,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: editStraightCloud
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0ac51701c910aa843916f3f896fb65b8, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 0ac51701c910aa843916f3f896fb65b8, type: 3}
       propertyPath: m_Name
       value: Mesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 0ac51701c910aa843916f3f896fb65b8, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0ac51701c910aa843916f3f896fb65b8, type: 3}
       propertyPath: m_LocalPosition.x

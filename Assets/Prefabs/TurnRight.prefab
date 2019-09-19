@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5324020170200022297}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5433346792159873957}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Entrance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2952400024170879037}
   - component: {fileID: 5285058922010414832}
   - component: {fileID: 8045759157823841323}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TurnRight
   m_TagString: Path
   m_Icon: {fileID: 0}
@@ -166,6 +166,14 @@ PrefabInstance:
     - target: {fileID: 100000, guid: f4619af5b87e789488ed0f91b1c30c67, type: 3}
       propertyPath: m_Name
       value: editCornerCloud
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f4619af5b87e789488ed0f91b1c30c67, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f4619af5b87e789488ed0f91b1c30c67, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f4619af5b87e789488ed0f91b1c30c67, type: 3}
       propertyPath: m_LocalPosition.x

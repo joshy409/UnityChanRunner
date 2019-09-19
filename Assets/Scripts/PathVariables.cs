@@ -111,11 +111,11 @@ public class PathVariables : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("PlayerBody"))
+        if (other.CompareTag("BlackHole"))
         {
-            StartCoroutine(ChangeTriggerAfterDelay());
-            //queue corrption
             spread = true;
+            //StartCoroutine(ChangeTriggerAfterDelay());
+            //queue corrption
         }
     }
 
@@ -127,7 +127,7 @@ public class PathVariables : MonoBehaviour {
     }
 
     float current = 0;
-    float end = 2f;
+    float end = 1.5f;
     private void Update()
     {
         if (spread)
@@ -137,8 +137,8 @@ public class PathVariables : MonoBehaviour {
                 spread = false;
                 if(destroy)
                 {
-                    StartCoroutine(ex.SplitMesh(true));
-                    Destroy(gameObject, 1f);
+                    //StartCoroutine(ex.SplitMesh(true));
+                    Destroy(gameObject);
                 }
             }
             else

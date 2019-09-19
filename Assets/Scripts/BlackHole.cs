@@ -20,6 +20,7 @@ public class BlackHole : MonoBehaviour
             if (Vector3.Distance(transform.position, mapGen.lastGeneratedTurn.Peek().pos) <= 10)
             {
                 transform.position = mapGen.lastGeneratedTurn.Peek().pos;
+                transform.rotation = mapGen.lastGeneratedTurn.Peek().rot;
                 mapGen.lastGeneratedTurn.Dequeue();
             }
         }
@@ -27,3 +28,6 @@ public class BlackHole : MonoBehaviour
     }
 
 }
+
+//make black hole trigger the corruption.
+//destruction.

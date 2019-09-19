@@ -5,20 +5,22 @@ Shader "Custom/Corruption"
 {
     Properties
     {
-        _Color ("Color", Color) = (1,1,1,1)
+        _Color ("Default Color", Color) = (1,1,1,1)
         _MainTex ("Default", 2D) = "white" {}
+		_NormalMap("Normal", 2D) = "white" {}
 		
 		//noise
 		_NoiseTex("Noise Texture", 2D) = "white" {}
 		_Cutoff("Cutoff" , Range(0,1)) = 0
 		
 		//color
-		_ColorTex("Corruption Color", 2D) = "white" {}
+		_ColorTex("Corruption Texture", 2D) = "white" {}
+		_CorruptionColor("Corruption Color", Color) = (1,1,1,.1)
 
 		//origin
 		//_Origin("Origin Position", Vector) = (0,0,0,0)
 		
-		_Offset("Offset" , Range(-30,30)) = 0
+		//_Offset("Offset" , Range(-30,30)) = 0
 
     }
     SubShader
@@ -34,16 +36,19 @@ Shader "Custom/Corruption"
         #pragma target 3.0
 
         sampler2D _MainTex;
+		sampler2D _NormalMap;
 
         struct Input
         {
             float2 uv_MainTex;
 			float3 worldPos;
+			float2 uv_NormalMap;
         };
 
         half _Glossiness;
         half _Metallic;
         fixed4 _Color;
+		fixed4 _CorruptionColor;
 		sampler2D _NoiseTex;
 		half _Cutoff;
 		//float3 _Origin;
@@ -70,10 +75,12 @@ Shader "Custom/Corruption"
 
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
-			o.Smoothness = .5;
+			o.Smoothness = .3;
             o.Alpha = c.a;
+			o.Normal = UnpackNormal(tex2D(_NormalMap, IN.uv_MainTex));
 
-			//o.Emission = fixed3(1, 0, 0) * step(dissolve - _Cutoff, 0.01f); //emits white color with 0.05 border size
+			fixed4 d = tex2D(_ColorTex, IN.uv_MainTex) * _CorruptionColor;
+			o.Emission = d.rgb * step(dissolve - _Cutoff, 0.05f); //emits white color with 0.05 border size
 
 			//radial shader
 			//if (distance(_Origin, IN.worldPos) >= _Offset) {
@@ -94,7 +101,7 @@ Shader "Custom/Corruption"
 			//if (localPos.z < _Offset) {
 				//o.Albedo = tex2D(_ColorTex, IN.uv_MainTex).rgb;
 				if (dissolve <= _Cutoff) {
-					fixed4 c = tex2D(_ColorTex, IN.uv_MainTex) * _Color;
+					fixed4 c = tex2D(_ColorTex, IN.uv_MainTex) * _CorruptionColor;
 					o.Albedo = c.rgb;
 					//discard;
 				}
