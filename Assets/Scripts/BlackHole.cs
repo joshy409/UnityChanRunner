@@ -29,5 +29,3 @@ public class BlackHole : MonoBehaviour
 
 }
 
-//make black hole trigger the corruption.
-//destruction.

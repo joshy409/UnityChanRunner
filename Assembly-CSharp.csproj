@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Destroy.cs" />
     <Compile Include="Assets\Scripts\AnimationCycling.cs" />
     <Compile Include="Assets\Scripts\BlackHole.cs" />
     <Compile Include="Assets\Scripts\Collectibles.cs" />
@@ -94,7 +95,6 @@
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_eye_blend.shader" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
-    <None Include="Assets\Shader\NewSurfaceShader.shader" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
     <None Include="Assets\Shader\BlackHole.shader" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_hair.shader" />

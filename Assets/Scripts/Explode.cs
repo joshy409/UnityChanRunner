@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Explode : MonoBehaviour
 {
+    Rigidbody rb;
 
     public IEnumerator SplitMesh(bool destroy)
     {
-
-        if (GetComponent<MeshFilter>() == null || GetComponent<SkinnedMeshRenderer>() == null)
+        if (GetComponent<MeshFilter>() == null && GetComponent<SkinnedMeshRenderer>() == null)
         {
             yield return null;
         }
@@ -46,7 +46,7 @@ public class Explode : MonoBehaviour
 
             int[] indices = M.GetTriangles(submesh);
 
-            for (int i = 0; i < indices.Length; i += 256)
+            for (int i = 0; i < indices.Length; i += 512)
             {
                 Vector3[] newVerts = new Vector3[3];
                 Vector3[] newNormals = new Vector3[3];
@@ -67,18 +67,30 @@ public class Explode : MonoBehaviour
                 mesh.triangles = new int[] { 0, 1, 2, 2, 1, 0 };
 
                 GameObject GO = new GameObject("Triangle " + (i / 3));
-                GO.layer = LayerMask.NameToLayer("Particle");
+                GameObject triMesh = new GameObject("Triangle " + (i / 3));
+
+                //GO.layer = LayerMask.NameToLayer("Particle");
+                triMesh.layer = LayerMask.NameToLayer("Particle");
                 GO.transform.position = transform.position;
                 GO.transform.rotation = transform.rotation;
                 GO.AddComponent<MeshRenderer>().material = materials[submesh];
                 GO.AddComponent<MeshFilter>().mesh = mesh;
-                GO.AddComponent<BoxCollider>();
+
+                triMesh.AddComponent<BoxCollider>();
+                Vector3 center = new Vector3((mesh.vertices[0].x + mesh.vertices[1].x + mesh.vertices[2].x) / 3, (mesh.vertices[0].y + mesh.vertices[1].y + mesh.vertices[2].y) / 3, (mesh.vertices[0].z + mesh.vertices[1].z + mesh.vertices[2].z) / 3);
+                triMesh.transform.position = transform.TransformPoint(center);
+                GO.transform.parent = triMesh.transform;
                 Vector3 explosionPos = new Vector3(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(0f, 0.5f), transform.position.z + Random.Range(-0.5f, 0.5f));
-                GO.AddComponent<Rigidbody>().AddExplosionForce(Random.Range(300, 500), explosionPos, 5);
-                GO.AddComponent<MoveTowardsCenter>();
-                //GO.transform.localScale = new Vector3(10, 10, 10);
-                //Destroy(GO, 5 + Random.Range(0.0f, 1.0f));
-                Destroy(GO);
+                rb = triMesh.AddComponent<Rigidbody>();
+                rb.AddExplosionForce(Random.Range(300, 500), explosionPos, 5);
+                rb.useGravity = false;
+
+
+ 
+                triMesh.AddComponent<MoveTowardsCenter>();
+                triMesh.transform.localScale = new Vector3(3, 3, 3);
+                Destroy(triMesh, 2 + Random.Range(0.0f, 1.0f));
+                
             }
         }
 

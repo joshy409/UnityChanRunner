@@ -61,6 +61,7 @@ public class PathVariables : MonoBehaviour {
         //copy and make a new instance of material
         Material mat = new Material(corruption);
         mesh.material = mat;
+        mat.SetTextureScale("_MainTex", new Vector2(Random.Range(.7f, 1.5f), Random.Range(.7f, 1.5f)));
         
     }
 
@@ -137,12 +138,16 @@ public class PathVariables : MonoBehaviour {
                 spread = false;
                 if(destroy)
                 {
-                    //StartCoroutine(ex.SplitMesh(true));
+                    StartCoroutine(ex.SplitMesh(true));
                     Destroy(gameObject);
                 }
             }
             else
             {
+                if (isTurn)
+                {
+                    end = 2f;
+                }
                 current += Time.deltaTime;
                 float percent = current / end;
                 Mathf.Clamp01(percent);

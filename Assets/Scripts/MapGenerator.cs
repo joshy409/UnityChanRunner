@@ -48,7 +48,7 @@ public class MapGenerator : MonoBehaviour
         {
             
             GenerateUntilTurn();
-            GenerateUntilTurn();
+            //GenerateUntilTurn();
         }
     }
 
