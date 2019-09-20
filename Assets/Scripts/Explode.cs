@@ -5,6 +5,7 @@ using UnityEngine;
 public class Explode : MonoBehaviour
 {
     Rigidbody rb;
+    public bool isTurn = false;
 
     public IEnumerator SplitMesh(bool destroy)
     {
@@ -43,10 +44,17 @@ public class Explode : MonoBehaviour
         Vector2[] uvs = M.uv;
         for (int submesh = 0; submesh < M.subMeshCount; submesh++)
         {
-
+            int count = 0;
+            if (isTurn)
+            {
+                count = 1024;
+            } else
+            {
+                count = 512;
+            }
             int[] indices = M.GetTriangles(submesh);
 
-            for (int i = 0; i < indices.Length; i += 512)
+            for (int i = 0; i < indices.Length; i += count)
             {
                 Vector3[] newVerts = new Vector3[3];
                 Vector3[] newNormals = new Vector3[3];
@@ -99,7 +107,9 @@ public class Explode : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         if (destroy == true)
         {
+            
             Destroy(gameObject);
+            
         }
 
     }

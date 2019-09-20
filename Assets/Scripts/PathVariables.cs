@@ -131,27 +131,30 @@ public class PathVariables : MonoBehaviour {
     float end = 1.5f;
     private void Update()
     {
-        if (spread)
+        if (mesh != null)
         {
-            if (current >= end)
+            if (spread)
             {
-                spread = false;
-                if(destroy)
+                if (current >= end)
                 {
-                    StartCoroutine(ex.SplitMesh(true));
-                    Destroy(gameObject);
+                    spread = false;
+                    if (destroy)
+                    {
+                        StartCoroutine(ex.SplitMesh(false));
+                        Destroy(gameObject);
+                    }
                 }
-            }
-            else
-            {
-                if (isTurn)
+                else
                 {
-                    end = 2f;
+                    if (isTurn)
+                    {
+                        end = 2f;
+                    }
+                    current += Time.deltaTime;
+                    float percent = current / end;
+                    Mathf.Clamp01(percent);
+                    mesh.material.SetFloat("_Cutoff", percent);
                 }
-                current += Time.deltaTime;
-                float percent = current / end;
-                Mathf.Clamp01(percent);
-                mesh.material.SetFloat("_Cutoff", percent);
             }
         }
     }

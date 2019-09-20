@@ -100,6 +100,6 @@ Material:
     m_Colors:
     - _BurnColor: {r: 0.3015342, g: 0, b: 0.3584906, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _CorruptionColor: {r: 0.3743389, g: 0, b: 0.3882353, a: 1}
+    - _CorruptionColor: {r: 0.509434, g: 0.040850844, b: 0.35842976, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Origin: {r: 0, g: 0, b: 0, a: 0}

@@ -24,4 +24,4 @@ MonoBehaviour:
   upDownEnabled: 0
   upDownTurnEnabled: 0
   minPath: 2
-  seconds: 2
+  seconds: 0.1

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MoveTowardsCenter : MonoBehaviour
 {
-    bool isPulled = false;
     GameObject dest;
     // Movement speed in units per second.
     public float speed = 200f;

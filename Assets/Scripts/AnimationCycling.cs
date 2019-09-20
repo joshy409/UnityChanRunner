@@ -21,11 +21,7 @@ public class AnimationCycling : MonoBehaviour
         ik = GetComponent<IKControl>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 
     private void FixedUpdate()
     {

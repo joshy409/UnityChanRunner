@@ -102,7 +102,7 @@ Shader "Custom/Corruption"
 				//o.Albedo = tex2D(_ColorTex, IN.uv_MainTex).rgb;
 				if (dissolve <= _Cutoff) {
 					fixed4 c = tex2D(_ColorTex, IN.uv_MainTex) * _CorruptionColor;
-					o.Albedo = c.rgb;
+					o.Albedo = c.rgb + o.Emission;
 					//discard;
 				}
 			//}
