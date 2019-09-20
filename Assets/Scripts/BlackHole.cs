@@ -23,6 +23,9 @@ public class BlackHole : MonoBehaviour
         if (Vector3.Distance(player.transform.position, transform.position) > 350f)
         {
             speed += 1f;
+        } else if (Vector3.Distance(player.transform.position, transform.position) < 200f)
+        {
+            player.GetComponent<AnimationCycling>().isMoving = false;
         }
         else
         {

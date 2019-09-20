@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generationVariables: {fileID: 11400000, guid: ac4d00c502a75244d8131a7d485a8559,
     type: 2}
-  meshRenderer: {fileID: 0}
-  meshCollider: {fileID: 0}
+  meshRenderer: {fileID: 7049046756417134561}
+  meshCollider: {fileID: 7049046756417134561}
 --- !u!65 &4364156955053029275
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -161,6 +161,12 @@ PrefabInstance:
 --- !u!4 &7049046756417029059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 0ac51701c910aa843916f3f896fb65b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 7049046756417165635}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7049046756417134561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 0ac51701c910aa843916f3f896fb65b8,
     type: 3}
   m_PrefabInstance: {fileID: 7049046756417165635}
   m_PrefabAsset: {fileID: 0}

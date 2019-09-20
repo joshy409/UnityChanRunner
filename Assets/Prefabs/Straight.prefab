@@ -26,6 +26,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf55fd749a53de49a3435fd097e846e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTurn: 0
 --- !u!1 &7769848018803831363
 GameObject:
   m_ObjectHideFlags: 0
