@@ -9,4 +9,14 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("UnityChanRunner");
     }
+
+    public void LoadMain()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
