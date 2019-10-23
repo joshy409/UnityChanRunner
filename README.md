@@ -70,6 +70,7 @@ Rim of the blackhole is made with simple additive shader which maps the uv of a 
 
 ### Waves
 Waves use the same custom shader as the rim but a different texture and different particle emmision was used to achieve more stormy like
+Also, the core is always rendered on top to acheive the effect of absorbing light
 
 ![Blackhole](Assets/Texture/blackhole.png)
 
@@ -100,7 +101,7 @@ void surf (Input IN, inout SurfaceOutputStandard o)
 
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
-			o.Smoothness = .3;
+	    o.Smoothness = .3;
             o.Alpha = c.a;
 	    o.Normal = UnpackNormal(tex2D(_NormalMap, IN.uv_MainTex));
 
