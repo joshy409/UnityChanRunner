@@ -88,7 +88,9 @@ As the blackhole is approaching the character I wanted more visual representatio
 
 Corruption effect is made with custom surface shader
 The shader takes in 3 different texture. Original, Noise, Corrupted.
-It initially renders the original texture and based on the cutoff value it compares the uv of the noise texture and renders the corrupted texture added with corruption color
+It initially renders the original texture and based on the cutoff value it compares the uv of the noise texture and renders the corrupted texture added with corruption color.
+
+Cutoff vaule is changed at runtime by a script that calculates the distand between the terrain and the blackhole
 
 ```
 void surf (Input IN, inout SurfaceOutputStandard o)
