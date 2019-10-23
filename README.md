@@ -16,8 +16,8 @@ I wanted to improve that by introducing a mail vilan. Giving the players to a pu
 
 This project has two parts 
 ```
-1. Blackhole
-2. Corrupting terrains
+Blackhole
+Corrupting Terrains
 ```
 
 ## Blackhole
@@ -37,7 +37,7 @@ Core of the blackhole is made by using fresnel effect and passing it to the frag
 ![Blackhole](Assets/Texture/blackholecore.png)
 
 ```
-fixed4 frag (v2f i) : SV_Target
+	fixed4 frag (v2f i) : SV_Target
             {
                 i.normalDir = normalize(i.normalDir);
                 float3 viewDir = normalize(-_WorldSpaceCameraPos.xyz - i.worldPos.xyz);
@@ -79,6 +79,37 @@ Final Blackhole with post processing
 
 ## Corrupting Terrains
 
-Add additional notes about how to deploy this on a live system
+As the blackhole is approaching the character I wanted more visual representation how much the blackhole has caught up instead of looking backwards
 
+![corruption](Assets/Texture/corruptiongif.png)
 
+### Shader
+
+Corruption effect is made with custom surface shader
+```
+void surf (Input IN, inout SurfaceOutputStandard o)
+        {
+	    float3 localPos = IN.worldPos - mul(unity_ObjectToWorld, float4(0, 0, 0, 1)).xyz;
+	    half dissolve = tex2D(_NoiseTex, IN.uv_MainTex).r;
+
+            // Albedo comes from a texture tinted by color
+            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+            o.Albedo = c.rgb;
+
+            // Metallic and smoothness come from slider variables
+            o.Metallic = _Metallic;
+			o.Smoothness = .3;
+            o.Alpha = c.a;
+	    o.Normal = UnpackNormal(tex2D(_NormalMap, IN.uv_MainTex));
+
+	    fixed4 d = tex2D(_ColorTex, IN.uv_MainTex) * _CorruptionColor;
+	    o.Emission = d.rgb * step(dissolve - _Cutoff, 0.05f); //emits white color with 0.05 border size
+
+			
+            if (dissolve <= _Cutoff) {
+		fixed4 c = tex2D(_ColorTex, IN.uv_MainTex) * _CorruptionColor;
+		o.Albedo = c.rgb + o.Emission;
+		//discard;
+	   }
+        }
+```
