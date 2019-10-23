@@ -8,29 +8,32 @@ The purpose of the project is to demonstrate the understanding of computer graph
 ## Project Goals
 
 I decided to use this project to as an opportunity improve my previous project [Shakti Unleashed](https://aieseattle.itch.io/shakti-unleashed "Shakti Unleashed itch.io page")
+
 Shakti is a fast-paced flying endless runner developed for AIE's Minor Production (Year 1 Capstone Project).
 Our team had came up with the theme where our main character is an diety that was trapped for long time and now have escaped and is running away for freedom but that was not really shown or put into the game due to time constraints.
 
 I wanted to improve that by introducing a mail vilan. Giving the players to a purpose to run away.
 
 This project has two parts 
-'''
+```
 1. Blackhole
 2. Corrupting terrains
-'''
+```
 
 ## Blackhole
 ![Blackhole](Assets/Texture/blackhole.png)
+
 Blackhole is made with 3 parts
-'''
+```
 Core
 Rim
 Waves
-'''
+```
 
 ### Core
 
 Core of the blackhole is made by using fresnel effect and passing it to the fragment shader
+
 ![Blackhole](Assets/Texture/blackholecore.png)
 
 ```
@@ -50,6 +53,7 @@ fixed4 frag (v2f i) : SV_Target
 
 ### Rim
 ![Blackhole](Assets/Texture/blackholerim.png)
+
 Rim of the blackhole is made with simple additive shader which maps the uv of a texture to render the particles in the shape of the texture
 
 ```
