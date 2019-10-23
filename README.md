@@ -86,10 +86,12 @@ As the blackhole is approaching the character I wanted more visual representatio
 ### Shader
 
 Corruption effect is made with custom surface shader
+The shader takes in 3 different texture. Original, Noise, Corrupted.
+It initially renders the original texture and based on the cutoff value it compares the uv of the noise texture and renders the corrupted texture added with corruption color
+
 ```
 void surf (Input IN, inout SurfaceOutputStandard o)
         {
-	    float3 localPos = IN.worldPos - mul(unity_ObjectToWorld, float4(0, 0, 0, 1)).xyz;
 	    half dissolve = tex2D(_NoiseTex, IN.uv_MainTex).r;
 
             // Albedo comes from a texture tinted by color
