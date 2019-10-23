@@ -81,7 +81,7 @@ Final Blackhole with post processing
 
 As the blackhole is approaching the character I wanted more visual representation how much the blackhole has caught up instead of looking backwards
 
-![corruption](Assets/Texture/corruptiongif.png)
+![corruption](Assets/Texture/corruptiongif.gif)
 
 ### Shader
 
