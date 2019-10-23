@@ -1,4 +1,4 @@
-# Project Title
+# Unity-Chan-Runner
 
 ![Unity-Chan Runner Splash Art](Assets/Texture/splashart.png)
 
