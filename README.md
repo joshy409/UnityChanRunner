@@ -61,8 +61,8 @@ Rim of the blackhole is made with simple additive shader which maps the uv of a 
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-				        o.uv = v.uv;
-				        o.vertexColor = v.vertexColor;
+		o.uv = v.uv;
+		o.vertexColor = v.vertexColor;
                 UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
